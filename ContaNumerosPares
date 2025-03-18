@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int ContaDigitosPares(int n) 
+{
+    if (n == 0)
+        return 0;
+
+    int ultimo_digito = n % 10;
+    int contador = 0;
+
+    if (ultimo_digito % 2 == 0)
+        contador = 1;
+
+    return contador + ContaDigitosPares(n / 10);
+}
+
+int main() {
+    int numero;
+    
+    scanf("%d", &numero);
+
+    int resultado = ContaDigitosPares(numero);
+    printf("%d\n", resultado);
+
+    return 0;
+}
